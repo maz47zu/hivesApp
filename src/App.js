@@ -1,24 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import LandingPage from './routes/LandingPage';
+import SettingsPage from './routes/SettingsPage';
+
+const routesPaths = {
+  landing:'',
+  settings:'settings'
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      {/* here will go the navbar */}
+      <Routes>
+        <Route path={`/${routesPaths.landing}`} element={<LandingPage/>}/>
+        <Route path={`/${routesPaths.settings}`} element={<SettingsPage/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
