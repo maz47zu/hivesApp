@@ -19,7 +19,7 @@ export default function Header() {
                 <CodeTwoToneIcon color = 'primary'/>
             </IconButton>
             <Typography variant='h6' component='div' sx={{ flexGrow: 1}} color='primary'>
-                  Solut Hives
+                  HivesApp
             </Typography>
             {isMobile ? (
                 <ThemeProvider theme={theme}>

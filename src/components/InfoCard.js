@@ -1,85 +1,84 @@
 import React from 'react'
-import { Card, CardHeader, CardContent, Typography, Divider, Icon, Box,Drawer,
-    IconButton,
+import { Card, CardHeader, CardContent, Typography, Divider,
     List,
     ListItem,
     ListItemText,
-    ListItemIcon } from '@material-ui/core';
+    ListItemIcon,
+    makeStyles} from '@material-ui/core';
 import DeviceThermostatIcon from '@mui/icons-material/DeviceThermostat';
 import PercentOutlinedIcon from '@mui/icons-material/PercentOutlined';
 import ScaleOutlinedIcon from '@mui/icons-material/ScaleOutlined';
+import { yellow } from '@mui/material/colors';
 
 
-const temp = '25.78';
-const humid = '60';
-const weight = '81.2';
+const useStyles = makeStyles({
+    root: {
+      background: yellow[600],
+      border: 0,
+      borderRadius: 3,
+      //boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+      color: 'grey',
+      height: 48,
+      padding: '0 30px',
+    },
+    icon:{
+      color: 'black'
+    },
+    paper: {
+        background: '#ffc107',
+        color: 'black'
+    }
+  });
 
-export default function InfoCard() {
-  return (
-    <Card outlined>
-      <CardHeader
-        title='nazwa ula'
-      />
-      <Divider/>
-      <CardContent>
-        <List disablePadding={false}>
-                  
-            <ListItem>
-                <ListItemIcon>
-                    <DeviceThermostatIcon/>
-                </ListItemIcon>
-                <ListItemText primary='Temperatura :'/>
-                <ListItemText primary={temp +' °C'}/>
-            </ListItem>
-            <Divider/>
-            <ListItem>
-                <ListItemIcon>
-                    <PercentOutlinedIcon/>
-                </ListItemIcon>
-                <ListItemText>
-                    <Typography variant = 'body1' color='primary'>Wilgotność :</Typography>
-                </ListItemText>
-                <ListItemText>
-                    <Typography variant = 'body1' color='primary' align='right'>{humid +' %'}</Typography>
-                </ListItemText>
-            </ListItem>
-            <Divider/>
-            <ListItem>
-                <ListItemIcon>
-                    <ScaleOutlinedIcon/>
-                </ListItemIcon>
-                <ListItemText>
-                    <Typography variant = 'body1' color='primary'>Waga :</Typography>
-                </ListItemText>
-                <ListItemText>
-                    <Typography variant = 'body1' color='primary' align='right'>{weight +' kg'}</Typography>
-                </ListItemText>
-            </ListItem>
-        </List>
-        {/* <Box>
-            <Icon fontSize='small'>
-                <DeviceThermostatIcon />
-                Temperatura : {temp}
-            </Icon>
-        </Box>
+export default function InfoCard( props ) {
+    const classes = useStyles();
+    //console.log(props.hives);
+
+    return (
+        <Card outlined={true} className={classes.paper}>
+        <CardHeader title={ 'Numer ula : '+ props.hives?.id }/>
+
         <Divider/>
-        <Box>
-            <Icon fontSize='small'>
-                <PercentOutlinedIcon />
-                Wilgotność :
-            </Icon>
-            
-        </Box>
-        <Divider/>
-        <Box>
-            <Icon fontSize='small'>
-                <ScaleOutlinedIcon />
-                Waga :
-            </Icon>
-        </Box> */}
-      </CardContent>
-        
-    </Card>
-    
-  )
+        <CardContent>
+            <List disablePadding={false}>
+                    
+                <ListItem>
+                    <ListItemIcon className={classes.icon}>
+                        <DeviceThermostatIcon/>
+                    </ListItemIcon>
+                    <ListItemText>
+                        <Typography variant = 'body1'>Temperatura :</Typography>
+                    </ListItemText>
+                    <ListItemText>
+                        <Typography variant = 'body1' align='right'>{props.hives?.temperature.toFixed(2) +' °C'}</Typography>
+                    </ListItemText>
+                </ListItem>
+                <Divider/>
+                <ListItem>
+                    <ListItemIcon className={classes.icon}>
+                        <PercentOutlinedIcon/>
+                    </ListItemIcon>
+                    <ListItemText>
+                        <Typography variant = 'body1'>Wilgotność :</Typography>
+                    </ListItemText>
+                    <ListItemText>
+                        <Typography variant = 'body1' align='right'>{props.hives?.humidity.toFixed(2) +' %'}</Typography>
+                    </ListItemText>
+                </ListItem>
+                <Divider/>
+                <ListItem>
+                    <ListItemIcon className={classes.icon}>
+                        <ScaleOutlinedIcon/>
+                    </ListItemIcon>
+                    <ListItemText>
+                        <Typography variant = 'body1' >Waga :</Typography>
+                    </ListItemText>
+                    <ListItemText>
+                        <Typography variant = 'body1' align='right'>{props.hives?.weight.toFixed(2) +' kg'}</Typography>
+                    </ListItemText>
+                </ListItem>
+            </List>
+        </CardContent>
+        </Card>
+    )
 }

@@ -13,7 +13,7 @@ import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import InfoIcon from '@mui/icons-material/Info';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import CottageIcon from '@mui/icons-material/Cottage';
-import { yellow, orange } from '@mui/material/colors';
+import { yellow } from '@mui/material/colors';
 
 const useStyles = makeStyles({
   root: {
