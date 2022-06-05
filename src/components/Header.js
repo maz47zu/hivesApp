@@ -33,7 +33,9 @@ export default function Header() {
                     <Link to='/settings' style={{ textDecoration: 'none' }}>
                         <Button><Typography color='primary'>Ustawienia</Typography></Button>
                     </Link>
-                    
+                    <Link to='/about' style={{ textDecoration: 'none' }}>
+                        <Button><Typography color='primary'>Twórcy</Typography></Button>
+                    </Link>
                 </Stack>
             )}
         </Toolbar>
