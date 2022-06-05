@@ -2,6 +2,9 @@ import './App.css';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import LandingPage from './routes/LandingPage';
 import SettingsPage from './routes/SettingsPage';
+import theme from './theme';
+import { ThemeProvider } from '@mui/material/styles';
+import Header from './components/Header';
 
 const routesPaths = {
   landing:'',
@@ -10,13 +13,15 @@ const routesPaths = {
 
 function App() {
   return (
-    <BrowserRouter>
-      {/* here will go the navbar */}
-      <Routes>
-        <Route path={`/${routesPaths.landing}`} element={<LandingPage/>}/>
-        <Route path={`/${routesPaths.settings}`} element={<SettingsPage/>}/>
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Header/>
+        <Routes>
+          <Route path={`/${routesPaths.landing}`} element={<LandingPage/>}/>
+          <Route path={`/${routesPaths.settings}`} element={<SettingsPage/>}/>
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
