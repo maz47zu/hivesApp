@@ -9,7 +9,7 @@ export default function LandingPage() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://51.68.141.235:8088/hives")
+    fetch("/api/hives")
       .then(res => res.json())
       .then(
         (result) => {

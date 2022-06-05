@@ -72,39 +72,15 @@ export default function DrawerComponent() {
                               <ListItemText primary='Ustawienia'/>
                       </ListItem>
                   </Link>
-                  {/* <Divider />
-                  <Link to='/policy' style={{ textDecoration: 'none' }}>
-                      <ListItem onClick={() => setOpenDrawer(false)}>
-                          <ListItemButton className="button-sidebar">
+                  <Divider/>
+                  <Link to='/about' style={{ textDecoration: 'none' }}>
+                      <ListItem onClick={() => setOpenDrawer(false)} button className={classes.root}>
                               <ListItemIcon>
-                                  <PolicyIcon />
-                              </ListItemIcon> 
-                              Policy
-                          </ListItemButton>
+                                  <InfoIcon  className={classes.icon}/>
+                              </ListItemIcon>
+                              <ListItemText primary='Twórcy'/>
                       </ListItem>
                   </Link>
-                  <Divider />
-                  <Link to='/contact' style={{ textDecoration: 'none' }}>
-                      <ListItem onClick={() => setOpenDrawer(false)}>
-                          <ListItemButton className="button-sidebar"> 
-                              <ListItemIcon>
-                                  <ContactPageIcon/>
-                              </ListItemIcon>
-                              Contact
-                          </ListItemButton>
-                      </ListItem>
-                  </Link>
-                  <Divider />
-                  <Link to='/firstLesson' style={{ textDecoration: 'none' }}>
-                      <ListItem onClick={() => setOpenDrawer(false)}>
-                          <ListItemButton className="button-sidebar"> 
-                              <ListItemIcon>
-                                  <NightShelterIcon/>
-                              </ListItemIcon>
-                              Lesson1
-                          </ListItemButton>
-                      </ListItem>
-                  </Link> */}
               </List>
           </Drawer>
           
