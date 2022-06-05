@@ -5,10 +5,12 @@ import SettingsPage from './routes/SettingsPage';
 import theme from './theme';
 import { ThemeProvider } from '@mui/material/styles';
 import Header from './components/Header';
+import About from './routes/About';
 
 const routesPaths = {
   landing:'',
-  settings:'settings'
+  settings:'settings',
+  about:'about'
 }
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
         <Routes>
           <Route path={`/${routesPaths.landing}`} element={<LandingPage/>}/>
           <Route path={`/${routesPaths.settings}`} element={<SettingsPage/>}/>
+          <Route path={`/${routesPaths.about}`} element={<About/>}/>
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
