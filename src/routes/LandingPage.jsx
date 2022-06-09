@@ -8,8 +8,11 @@ export default function LandingPage() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
 
-  useEffect(() => {
-    fetch("/api/hives")
+  useEffect(function(){
+    const id = setInterval(function (){
+      fetch("/api/hives")
+      //console.log('Updating...')
+      //fetch("http://51.68.141.235:8088/hives")
       .then(res => res.json())
       .then(
         (result) => {
@@ -22,6 +25,10 @@ export default function LandingPage() {
           setError(error);
         }
       )
+    },5000);
+    return function(){
+      clearInterval(id);
+    }
     }, [])
 
     if(error){
