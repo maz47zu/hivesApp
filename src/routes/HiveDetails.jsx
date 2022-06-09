@@ -1,10 +1,6 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
-import { Card, CardHeader, CardContent, Typography, Divider,
-    List,
-    ListItem,
-    ListItemText,
-    ListItemIcon,
+import { Card, CardHeader, CardContent, Divider,
     makeStyles
 } from '@material-ui/core';
 import { yellow } from '@mui/material/colors';
