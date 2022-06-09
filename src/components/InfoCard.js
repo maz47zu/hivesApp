@@ -4,13 +4,14 @@ import { Card, CardHeader, CardContent, Typography, Divider,
     ListItem,
     ListItemText,
     ListItemIcon,
-    makeStyles} from '@material-ui/core';
+    makeStyles
+    } from '@material-ui/core';
 import { Button, Box } from '@mui/material';
 import DeviceThermostatIcon from '@mui/icons-material/DeviceThermostat';
 import PercentOutlinedIcon from '@mui/icons-material/PercentOutlined';
 import ScaleOutlinedIcon from '@mui/icons-material/ScaleOutlined';
 import { yellow } from '@mui/material/colors';
-
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
@@ -36,7 +37,7 @@ const useStyles = makeStyles({
 
 export default function InfoCard( props ) {
     const classes = useStyles();
-    //console.log(props.hives);
+    const hiveId = props.hives?.id;
 
     return (
         <Card outlined={true} className={classes.paper} >
@@ -82,13 +83,14 @@ export default function InfoCard( props ) {
                     </ListItemText>
                 </ListItem>
                 <Divider/>
-                
             </List>
             <Box sx={{pt:1, pb:-0}}>
-                    <Button variant="outlined" color="inherit" fullWidth="true" size="small" className={classes.button} >
+                <Link to='/details' state={{ hiveId: hiveId }} style={{ textDecoration: 'none' }}>
+                    <Button variant="outlined" color="info" fullWidth="true" size="small">
                         Więcej informacji...
                     </Button>
-                </Box>
+                </Link>
+            </Box>
         </CardContent>
         </Card>
     )

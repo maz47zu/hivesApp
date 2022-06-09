@@ -14,6 +14,9 @@ const theme = createTheme({
       },
       success: {
         main: '#4caf50'
+      },
+      info: {
+        main: '#212121'
       }
     },
     typography: {

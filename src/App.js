@@ -6,11 +6,13 @@ import theme from './theme';
 import { ThemeProvider } from '@mui/material/styles';
 import Header from './components/Header';
 import About from './routes/About';
+import HiveDetails from './routes/HiveDetails';
 
 const routesPaths = {
   landing:'',
   settings:'settings',
-  about:'about'
+  about:'about',
+  hiveDetails: 'details'
 }
 
 function App() {
@@ -22,6 +24,7 @@ function App() {
           <Route path={`/${routesPaths.landing}`} element={<LandingPage/>}/>
           <Route path={`/${routesPaths.settings}`} element={<SettingsPage/>}/>
           <Route path={`/${routesPaths.about}`} element={<About/>}/>
+          <Route path={`/${routesPaths.hiveDetails}`} element={<HiveDetails/>}/>
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

@@ -33,25 +33,28 @@ export default function LandingPage() {
   const [items, setItems] = useState([]);
   const classes = useStyles();
 
+  const getHivesData = () => {
+    //fetch("/api/hives")
+    //console.log('Updating...')
+    fetch("http://51.68.141.235:8088/hives")
+    //uncomment on localhost 
+    .then(res => res.json())
+    .then(
+      (result) => {
+        setIsLoaded(true);
+        setItems(result);
+        //console.log(items[0].temperature);
+      },
+      (error) => {
+        setIsLoaded(true);
+        setError(error);
+      }
+    )
+  };
+
   useEffect(function(){
-    const id = setInterval(function (){
-      //fetch("/api/hives")
-      //console.log('Updating...')
-      fetch("http://51.68.141.235:8088/hives")
-      //uncomment on localhost 
-      .then(res => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setItems(result);
-          //console.log(items[0].temperature);
-        },
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      )
-    },5000);
+    getHivesData();
+    const id = setInterval(getHivesData(),5000);
     return function(){
       clearInterval(id);
     }
