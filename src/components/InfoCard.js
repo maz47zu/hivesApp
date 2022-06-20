@@ -3,37 +3,14 @@ import { Card, CardHeader, CardContent, Typography, Divider,
     List,
     ListItem,
     ListItemText,
-    ListItemIcon,
-    makeStyles
+    ListItemIcon
     } from '@material-ui/core';
 import { Button, Box } from '@mui/material';
 import DeviceThermostatIcon from '@mui/icons-material/DeviceThermostat';
 import PercentOutlinedIcon from '@mui/icons-material/PercentOutlined';
 import ScaleOutlinedIcon from '@mui/icons-material/ScaleOutlined';
-import { yellow } from '@mui/material/colors';
 import { Link } from 'react-router-dom';
-
-const useStyles = makeStyles({
-    root: {
-      background: yellow[600],
-      border: 0,
-      borderRadius: 3,
-      //boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-      color: 'grey',
-      height: 48,
-      padding: '0 30px',
-    },
-    icon:{
-      color: 'black'
-    },
-    paper: {
-        background: '#ffc107',
-        color: 'black'
-    },
-    button: {
-        color: 'black'
-    }
-  });
+import useStyles from '../customStyles';
 
 export default function InfoCard( props ) {
     const classes = useStyles();

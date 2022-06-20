@@ -1,47 +1,35 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
-import { Card, CardHeader, CardContent, Divider,
-    makeStyles
-} from '@material-ui/core';
-import { yellow } from '@mui/material/colors';
-
-const useStyles = makeStyles({
-    root: {
-      background: yellow[600],
-      border: 0,
-      borderRadius: 3,
-      //boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-      color: 'grey',
-      height: 48,
-      padding: '0 30px',
-    },
-    icon:{
-      color: 'black'
-    },
-    paper: {
-        background: '#ffc107',
-        color: 'black'
-    },
-    button: {
-        color: 'black'
-    }
-  });
+import { useLocation, useNavigate } from 'react-router-dom'
+import { Card, CardHeader, CardContent, Container,  IconButton, Box } from '@material-ui/core';
+import useStyles from '../customStyles';
+import CottageIcon from '@mui/icons-material/Cottage';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import HiveChart from '../components/HiveChart';
 
 export default function HiveDetails() {
     const location = useLocation();
     const { hiveId } = location.state;
     const classes = useStyles();
-
+    const navigate = useNavigate();
     //http://51.68.141.235:8088/history/hive/10
 
   return (
-    <Card outlined={true} className={classes.paper} >
-    <CardHeader title={ 'Szczegóły ula numer: '+ hiveId }/>
-
-    <Divider/>
-    <CardContent>
-        
-    </CardContent>
-    </Card>
+    <Container className={classes.container}>
+      <Card outlined={true} >
+      <CardHeader title={'Szczegóły ula numer: '+ hiveId} disableTypography={true} 
+      action={<Box>
+        <IconButton onClick={() => navigate(-1)}>
+          <ArrowBackIcon className={classes.icon}/>
+          <CottageIcon className={classes.icon}/>
+        </IconButton>
+      </Box>}
+      className={classes.paper}
+      />
+      <CardContent className={classes.chart}>
+          <HiveChart id={ hiveId }/>
+      </CardContent>
+      </Card>
+    </Container>
+    
   )
 }
