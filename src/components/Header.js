@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import DrawerComponent from '../components/DrawerComponent';
 import { AppBar, Toolbar, IconButton, Typography, Stack, Button, CssBaseline, useMediaQuery, useTheme } from '@mui/material';
 import CodeTwoToneIcon from '@mui/icons-material/CodeTwoTone';
-//import {isMobile} from 'react-device-detect';
 import theme from '../theme';
 import { ThemeProvider } from '@mui/material/styles';
 
