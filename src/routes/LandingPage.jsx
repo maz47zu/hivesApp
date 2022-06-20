@@ -34,9 +34,9 @@ export default function LandingPage() {
   const classes = useStyles();
 
   const getHivesData = () => {
-    fetch("/api/hives")
+    //fetch("/api/hives")
     //console.log('Updating...')
-    //fetch("http://51.68.141.235:8088/hives")
+    fetch("http://51.68.141.235:8088/hives")
     //uncomment on localhost 
     .then(res => res.json())
     .then(
