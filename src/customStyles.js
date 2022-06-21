@@ -33,7 +33,11 @@ const useStyles = makeStyles({
     },
     chart: {
         background: chartBackgroundColour,
-        color: 'black'
+        color: 'black',
+    },
+    chartPosition: {
+      marginTop: "15px",
+      marginBottom: "4px"
     }
   });
 
