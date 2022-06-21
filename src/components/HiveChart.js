@@ -12,6 +12,8 @@ import {
 import { Line } from 'react-chartjs-2';
 import { Typography } from '@material-ui/core';
 import { faker } from '@faker-js/faker';
+import { Divider } from '@mui/material';
+import useStyles from '../customStyles';
 
 ChartJS.register(
   CategoryScale,
@@ -37,25 +39,17 @@ export const options = {
     },
   },
   scales: {
-    temp: {
+    yaxis: {
       type: 'linear',
       display: true,
       position: 'left',
-    },
-    humid: {
-      type: 'linear',
-      display: true,
-      position: 'right',
-      grid: {
-        drawOnChartArea: false,
-      },
     },
   },
 };
 
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July',];
 
-export const data = {
+export const dataTemp = {
   labels,
   datasets: [
     {
@@ -64,24 +58,37 @@ export const data = {
       //data: [35, 50, 60, 80, 20, 16,35, 50, 60, 80, 20, 16],
       borderColor: 'rgb(82, 82, 82)',
       backgroundColor: 'rgba(82, 82, 82, 0.5)',
-      yAxisID: 'temp',
+      yAxisID: 'yaxis',
     },
+  ],
+};
+
+export const dataHumid = {
+  labels,
+  datasets: [
     {
       label: 'Wilgotność',
       //data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
       data: [90, 50, 60, 80, 20, 10,35, 50, 60, 80, 20, 76],
       borderColor: 'rgb(0, 0, 0)',
       backgroundColor: 'rgba(0, 0, 0, 0.7)',
-      yAxisID: 'humid',
+      yAxisID: 'yaxis',
     },
   ],
 };
 
 export default function HiveChart( props ) {
+  const classes = useStyles();
   return (
     <>
+
       <Line options={options} data={data}/>
       <Typography>{'Props : '+props.id}</Typography>
+=======
+      <Line options={options} data={dataTemp}/>
+      <Divider/>
+      <Line options={options} data={dataHumid} className={classes.chartPosition}/>
+      <Typography>{'Props: ' + props.id}</Typography>
     </>
   )
 }
