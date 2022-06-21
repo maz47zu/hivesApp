@@ -81,7 +81,7 @@ export default function HiveChart( props ) {
   return (
     <>
       <Line options={options} data={data}/>
-      <Typography>{'Props: '+props.id}</Typography>
+      <Typography>{'Props : '+props.id}</Typography>
     </>
   )
 }
