@@ -33,10 +33,8 @@ export default function LandingPage() {
 
   useEffect(function(){
     getHivesData();
-    const id = setInterval(getHivesData(),5000);
-    return function(){
-      clearInterval(id);
-    }
+    const id = setInterval(() => getHivesData(),5000);
+    return () => clearInterval(id)
     }, [])
 
     if(error){

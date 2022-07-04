@@ -77,6 +77,20 @@ export const dataHumid = {
   ],
 };
 
+export const dataWeight = {
+  labels,
+  datasets: [
+    {
+      label: 'Waga',
+      //data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+      data: [90, 50, 60, 80, 20, 10,35, 50, 60, 80, 20, 76],
+      borderColor: 'rgb(0, 0, 0)',
+      backgroundColor: 'rgba(0, 0, 0, 0.7)',
+      yAxisID: 'yaxis',
+    },
+  ],
+};
+
 export default function HiveChart( props ) {
   const classes = useStyles();
   return (
@@ -84,6 +98,8 @@ export default function HiveChart( props ) {
       <Line options={options} data={dataTemp}/>
       <Divider/>
       <Line options={options} data={dataHumid} className={classes.chartPosition}/>
+      <Divider/>
+      <Line options={options} data={dataWeight} className={classes.chartPosition}/>
       <Typography>{'Props: ' + props.id}</Typography>
     </>
   )
